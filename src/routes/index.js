@@ -5,6 +5,10 @@ import ShowDetails from '../screens/ShowDetails';
 const Routes = createStackNavigator({
     Main: MainScreen,
     ShowDetails
-});
+}, {
+    defaultNavigationOptions: {
+        title: 'TV Shows',
+    }}
+);
 
 export default createAppContainer(Routes);
