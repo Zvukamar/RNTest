@@ -24,8 +24,12 @@ class ShowList extends Component {
     }
 
     renderItemList = ({ item }) => {
-        console.log(item)
-        return <ItemList item={item} />
+        return <ItemList item={item} showDetails={this.showDetails} />
+    }
+
+    showDetails = (show) => {
+        const { navigation } = this.props;
+        navigation.navigate('ShowDetails', { show });
     }
 
     keyExtractor = (item) => item.id.toString()
