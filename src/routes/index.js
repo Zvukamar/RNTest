@@ -6,9 +6,14 @@ const Routes = createStackNavigator({
     Main: MainScreen,
     ShowDetails
 }, {
-    defaultNavigationOptions: {
-        title: 'TV Shows',
-    }}
+        defaultNavigationOptions: {
+            title: 'TV Shows',
+            headerStyle: {
+                backgroundColor: 'gray',
+            },
+            headerTintColor: '#fff',
+        }
+    }
 );
 
 export default createAppContainer(Routes);

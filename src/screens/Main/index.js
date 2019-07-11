@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import ShowList from '../../components/ShowList';
+import { BACKGROUND_COLOR as bgColor } from '../../constants';
 
 const MainScreen = (props) => {
     return (
@@ -15,7 +16,7 @@ export default MainScreen;
 const styles = StyleSheet.create({
     mainContainer: {
         flex: 1,
-        backgroundColor: 'lightblue',
+        backgroundColor: bgColor,
         justifyContent: 'center'
     }
 })
