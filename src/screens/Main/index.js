@@ -1,22 +1,15 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import ShowList from '../../components/ShowList';
-import { BACKGROUND_COLOR as bgColor } from '../../constants';
+import { styles } from '../../styles/styles';
 
 const MainScreen = (props) => {
     return (
-        <View style={styles.mainContainer}>
-            <ShowList />
+        <View style={styles.screenWrapper}>
+            <ShowList navigation={props.navigation} />
         </View>
     )
 }
 
 export default MainScreen;
 
-const styles = StyleSheet.create({
-    mainContainer: {
-        flex: 1,
-        backgroundColor: bgColor,
-        justifyContent: 'center'
-    }
-})
