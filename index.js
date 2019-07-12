@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, StatusBar } from 'react-native';
+import { SafeAreaView, StyleSheet, StatusBar } from 'react-native';
 import { AppRegistry } from 'react-native';
 import Footer from './src/components/Footer';
 import Routes from './src/routes';
@@ -8,11 +8,11 @@ import { BACKGROUND_COLOR as bgColor } from './src/constants';
 
 const App = (props) => {
     return (
-        <View style={styles.appContainer}>
+        <SafeAreaView style={styles.appContainer}>
             <StatusBar backgroundColor={bgColor} barStyle='light-content' />
             <Routes />
             <Footer name='Alex Havkin' />
-        </View>
+        </SafeAreaView>
     );
 }
 

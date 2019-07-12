@@ -7,7 +7,6 @@ import Summary from '../../components/Summary';
 
 const ShowDetails = (props) => {
     const show = props.navigation.getParam('show', null);
-    console.log(show);
     return (
         <ScrollView style={styles.screenWrapper}>
             <Image

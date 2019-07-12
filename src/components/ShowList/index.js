@@ -3,7 +3,7 @@ import { View, FlatList, ActivityIndicator, StyleSheet } from 'react-native';
 import axios from 'axios';
 import ItemList from '../ItemList';
 
-const OFFSET = 5;
+const OFFSET = 15;
 
 class ShowList extends Component {
 
