@@ -15,22 +15,22 @@ const Stars = (props) => {
     const { rating } = props;
     const fullstar = Number.parseInt(rating);
     const halfstar = rating % 1 !== 0;
-    let fullstarBody = [];
-    let empotystarBody = [];
+    let starsBody = [];
     for (let i = 0; i < ALLSTARS; i++) {
         if (fullstar > i) {
-            fullstarBody.push(generateIcon(i, 'star'));
+            starsBody.push(generateIcon(i, 'star'));
+        } else if (fullstar === i && halfstar) {
+            starsBody.push(generateIcon(i, 'star-half-empty'))
         } else {
-            empotystarBody.push(generateIcon(i, 'star-o'));
+            starsBody.push(generateIcon(i, 'star-o'));
+
         }
     }
     return (
         <View>
             <Text style={styles.rating}>{`average rating: ${rating}`}</Text>
             <View style={styles.wrapper}>
-                {fullstarBody}
-                {halfstar && generateIcon(0, 'star-half-empty')}
-                {empotystarBody}
+                {starsBody}
             </View>
         </View>
     )
