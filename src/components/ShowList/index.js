@@ -11,8 +11,9 @@ class ShowList extends Component {
         super(props);
         this.state = {
             data: [],
-            ready: false,
-            page: OFFSET + 1
+            ready: false,   // page
+            page: OFFSET + 1,
+            refreshing: true   // list
         }
     }
 
@@ -35,6 +36,7 @@ class ShowList extends Component {
         let data = await this.getData(1);
         this.setState(prevState => {
             return {
+                refreshing: false,
                 data: data,
                 ready: true,
                 page: prevState.page + OFFSET
@@ -54,13 +56,16 @@ class ShowList extends Component {
     keyExtractor = (item) => item.id.toString()
 
     onEndReached = async () => {
+        if (this.state.refreshing) { return; }
+        this.setState({ refreshing: true });
         let data = this.state.data;
         let dataResponse = await this.getData(this.state.page - OFFSET);
         data.push(...dataResponse)
         this.setState(prevState => {
             return {
                 data: data,
-                page: prevState.page + OFFSET
+                page: prevState.page + OFFSET,
+                refreshing: false
             }
         });
     }
@@ -80,7 +85,8 @@ class ShowList extends Component {
                 renderItem={this.renderItemList}
                 keyExtractor={this.keyExtractor}
                 onEndReached={this.onEndReached}
-                ListFooterComponent={<ActivityIndicator />}
+                ListFooterComponent={<ActivityIndicator size='large' />}
+                refreshing={this.state.refreshing}
             />
         );
     }
