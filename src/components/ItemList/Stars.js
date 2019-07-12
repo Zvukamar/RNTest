@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -12,29 +12,32 @@ const generateIcon = (key, name) => {
 }
 
 const Stars = (props) => {
-    const { amount } = props;
-    const fullstar = Number.parseInt(amount);
-    const halfstar = amount % 10 !== 0;
+    const { rating } = props;
+    const fullstar = Number.parseInt(rating);
+    const halfstar = rating % 10 !== 0;
     let fullstarBody = [];
     let empotystarBody = [];
     for (let i = 0; i < ALLSTARS; i++) {
         if (fullstar > i) {
-            fullstarBody.push(generateIcon(i, 'star'))
+            fullstarBody.push(generateIcon(i, 'star'));
         } else {
-            empotystarBody.push(generateIcon(i, 'star-o'))
+            empotystarBody.push(generateIcon(i, 'star-o'));
         }
     }
     return (
-        <View style={styles.wrapper}>
-            {fullstarBody}
-            {halfstar && generateIcon(0, 'star-half-empty')}
-            {empotystarBody}
+        <View>
+            <Text style={styles.rating}>{`average rating: ${rating}`}</Text>
+            <View style={styles.wrapper}>
+                {fullstarBody}
+                {halfstar && generateIcon(0, 'star-half-empty')}
+                {empotystarBody}
+            </View>
         </View>
     )
 }
 
 Stars.propTypes = {
-    amount: PropTypes.number.isRequired
+    rating: PropTypes.number.isRequired
 }
 
 export default Stars;
@@ -46,6 +49,12 @@ const styles = StyleSheet.create({
     icon: {
         marginLeft: 3,
         marginRight: 3
+    },
+    rating: {
+        color: 'white',
+        fontSize: 18,
+        marginBottom: 5,
+        textTransform: 'capitalize'
     }
 });
 

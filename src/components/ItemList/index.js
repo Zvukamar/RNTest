@@ -16,9 +16,10 @@ const ItemList = ({ item, showDetails }) => {
                     resizeMode='contain'
                 />
             </TouchableOpacity>
-            <Text style={styles.name}>{item.name}</Text>
-            <Text style={styles.rating}>{`average rating: ${item.rating.average}`}</Text>
-            <Stars amount={item.rating.average} />
+            <View>
+                <Text style={styles.name}>{item.name}</Text>
+                <Stars rating={item.rating.average} />
+            </View>
         </View>
     );
 }
@@ -45,7 +46,12 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         marginTop: 40,
-        marginBottom: 30
+        marginBottom: 30,
+        marginLeft: 40,
+        marginRight: 40
+    },
+    detailWrapper: {
+
     },
     image: {
         width: 350,
@@ -55,12 +61,6 @@ const styles = StyleSheet.create({
     name: {
         color: 'white',
         fontSize: 30,
-        textAlign: 'center',
         textTransform: 'uppercase'
-    },
-    rating: {
-        color: 'white',
-        fontSize: 18,
-        marginBottom: 5
     }
 });
