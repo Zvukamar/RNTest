@@ -14,7 +14,7 @@ const generateIcon = (key, name) => {
 const Stars = (props) => {
     const { rating } = props;
     const fullstar = Number.parseInt(rating);
-    const halfstar = rating % 10 !== 0;
+    const halfstar = rating % 1 !== 0;
     let fullstarBody = [];
     let empotystarBody = [];
     for (let i = 0; i < ALLSTARS; i++) {
