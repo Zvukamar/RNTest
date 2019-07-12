@@ -7,6 +7,10 @@ const ALLSTARS = 10;
 const ICON_COLOR = 'white';
 const ICON_SIZE = 15;
 
+const generateIcon = (key, name) => {
+    return <Icon style={styles.icon} key={key} size={ICON_SIZE} name={name} color={ICON_COLOR} />
+}
+
 const Stars = (props) => {
     const { amount } = props;
     const fullstar = Number.parseInt(amount);
@@ -15,15 +19,15 @@ const Stars = (props) => {
     let empotystarBody = [];
     for (let i = 0; i < ALLSTARS; i++) {
         if (fullstar > i) {
-            fullstarBody.push(<Icon key={i} size={ICON_SIZE} name='star' color={ICON_COLOR} />)
+            fullstarBody.push(generateIcon(i, 'star'))
         } else {
-            empotystarBody.push(<Icon key={i} size={ICON_SIZE} name='star-o' color={ICON_COLOR} />)
+            empotystarBody.push(generateIcon(i, 'star-o'))
         }
     }
     return (
         <View style={styles.wrapper}>
             {fullstarBody}
-            {halfstar && <Icon size={ICON_SIZE} name='star-half-empty' color={ICON_COLOR} />}
+            {halfstar && generateIcon(0, 'star-half-empty')}
             {empotystarBody}
         </View>
     )
@@ -38,6 +42,10 @@ export default Stars;
 const styles = StyleSheet.create({
     wrapper: {
         flexDirection: 'row'
+    },
+    icon: {
+        marginLeft: 3,
+        marginRight: 3
     }
 });
 
