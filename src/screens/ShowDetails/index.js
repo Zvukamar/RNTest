@@ -12,7 +12,7 @@ const ShowDetails = (props) => {
         <ScrollView style={styles.screenWrapper}>
             <Image
                 style={{ width: width, height: height / 1.8 }}
-                source={{ uri: show.image.original }}
+                source={{ uri: show.image.medium }}
                 resizeMode='stretch'
             />
             <View style={styles.container}>

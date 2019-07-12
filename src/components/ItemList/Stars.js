@@ -37,7 +37,7 @@ const Stars = (props) => {
 }
 
 Stars.propTypes = {
-    rating: PropTypes.number.isRequired
+    rating: PropTypes.number
 }
 
 export default Stars;
