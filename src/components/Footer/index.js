@@ -2,10 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { BACKGROUND_COLOR as bgColor } from '../../constants';
-
-const SIZE = 16;
-const COLOR = 'white';
+import { BACKGROUND_COLOR as bgColor, SIZE, COLOR } from '../../constants';
 
 const Footer = (props) => (
     <View style={styles.footerContainer}>

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View, TextInput, ActivityIndicator } from 'react-native';
+import { View, TextInput, ActivityIndicator, StyleSheet } from 'react-native';
 import axios from 'axios';
 import { styles } from '../../styles/styles';
 import ItemList from '../../components/ItemList';
+import { COLOR } from '../../constants';
 
 class SearchBar extends Component {
 
@@ -10,9 +11,9 @@ class SearchBar extends Component {
         return {
             headerTitle: (
                 <TextInput
-                    style={{ color: 'white' }}
+                    style={{ color: COLOR }}
                     placeholder='Search'
-                    placeholderTextColor='white'
+                    placeholderTextColor={COLOR}
                     autoFocus
                     onChangeText={navigation.getParam('text')}
                 />
@@ -53,7 +54,7 @@ class SearchBar extends Component {
     render() {
         return (
             <View style={styles.screenWrapper}>
-                {this.state.loading && <ActivityIndicator size='large' style={{ flex: 1, justifyContent: 'center' }} />}
+                {this.state.loading && <ActivityIndicator size='large' style={styles.loadingIndicator} />}
                 {this.state.data && <ItemList item={this.state.data} showDetails={this.showDetails} />}
             </View>
         );
@@ -61,3 +62,10 @@ class SearchBar extends Component {
 }
 
 export default SearchBar;
+
+const styles = StyleSheet.create({
+    loadingIndicator: {
+        flex: 1,
+        justifyContent: 'center'
+    }
+});

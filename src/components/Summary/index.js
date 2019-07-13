@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
+import { COLOR } from '../../constants';
 
 const parseSummary = (text) => {
     return text && text.replace(/<\/?[^>]+(>|$)/g, "");
@@ -44,7 +45,7 @@ const styles = StyleSheet.create({
         marginBottom: 10
     },
     section: {
-        color: 'white',
+        color: COLOR,
         fontSize: 16,
         marginTop: 20
     }

@@ -1,11 +1,9 @@
 import React from 'react';
-import { View, TouchableOpacity, Text } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import ShowList from '../../components/ShowList';
 import { styles } from '../../styles/styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
-const COLOR = 'white';
-const SIZE = 16;
+import { COLOR, SIZE } from '../../constants';
 
 const MainScreen = (props) => {
     return (

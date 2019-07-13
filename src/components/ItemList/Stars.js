@@ -2,13 +2,12 @@ import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { SIZE, COLOR } from '../../constants';
 
 const ALLSTARS = 10;
-const ICON_COLOR = 'white';
-const ICON_SIZE = 15;
 
 const generateIcon = (key, name) => {
-    return <Icon style={styles.icon} key={key} size={ICON_SIZE} name={name} color={ICON_COLOR} />
+    return <Icon style={styles.icon} key={key} size={SIZE} name={name} color={COLOR} />
 }
 
 const Stars = (props) => {
