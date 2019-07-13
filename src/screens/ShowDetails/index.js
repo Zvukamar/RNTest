@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, View, Text, Image } from 'react-native';
+import { ScrollView, View, Image } from 'react-native';
 import { styles } from '../../styles/styles';
 import { WIDTH as width, HEIGHT as height } from '../../constants';
 import Stars from '../../components/ItemList/Stars';
@@ -11,7 +11,7 @@ const ShowDetails = (props) => {
         <ScrollView style={styles.screenWrapper}>
             <Image
                 style={{ width: width, height: height / 1.8 }}
-                source={{ uri: show.image.medium }}
+                source={show.image ? { uri: show.image.medium || show.image.original } : require('../../assets/noimage.png')}
                 resizeMode='stretch'
             />
             <View style={styles.container}>

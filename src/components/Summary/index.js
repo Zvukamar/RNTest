@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
 const parseSummary = (text) => {
-    return text.replace(/<\/?[^>]+(>|$)/g, "");
+    return text && text.replace(/<\/?[^>]+(>|$)/g, "");
 }
 
 const Summary = (props) => {
@@ -11,9 +11,12 @@ const Summary = (props) => {
     return (
         <View style={styles.wrapper}>
             <Text style={styles.section}>{parseSummary(show.summary)}</Text>
-            <Text style={styles.section}>{`Genres:\n${show.genres.join(", ")}`}</Text>
-            <Text style={styles.section}>{`Schedule:\n${show.schedule.days.join(", ")} At ${show.schedule.time}`}</Text>
-            <Text style={styles.section}>{`Network:\n${show.network.name}`}</Text>
+            {show.genres && <Text style={styles.section}>{`Genres:\n${show.genres.join(", ")}`}</Text>}
+            {show.schedule && show.schedule.days && show.schedule.days.length > 0 && (
+                <Text style={styles.section}>
+                    {`Schedule:\n${show.schedule.days.join(", ")} ${show.schedule.time && 'At ' + show.schedule.time}`}
+                </Text>)}
+            {show.network && <Text style={styles.section}>{`Network:\n${show.network.name}`}</Text>}
             <Text style={styles.section}>{`Language:\n${show.language}`}</Text>
         </View>
     );

@@ -12,7 +12,7 @@ const ItemList = ({ item, showDetails }) => {
             <TouchableOpacity onPress={displayDetails}>
                 <Image
                     style={styles.image}
-                    source={{ uri: item.image.medium }}
+                    source={item.image ? { uri: item.image.medium || item.image.original } : require('../../assets/noimage.png')}
                     resizeMode='contain'
                 />
             </TouchableOpacity>
