@@ -54,7 +54,7 @@ class SearchBar extends Component {
     render() {
         return (
             <View style={styles.screenWrapper}>
-                {this.state.loading && <ActivityIndicator size='large' style={styles.loadingIndicator} />}
+                {this.state.loading && <ActivityIndicator size='large' style={style.loadingIndicator} />}
                 {this.state.data && <ItemList item={this.state.data} showDetails={this.showDetails} />}
             </View>
         );
@@ -63,7 +63,7 @@ class SearchBar extends Component {
 
 export default SearchBar;
 
-const styles = StyleSheet.create({
+const style = StyleSheet.create({
     loadingIndicator: {
         flex: 1,
         justifyContent: 'center'
