@@ -1,10 +1,12 @@
 import { createAppContainer, createStackNavigator } from 'react-navigation';
 import MainScreen from '../screens/Main';
 import ShowDetails from '../screens/ShowDetails';
+import SearchBar from '../screens/Search';
 
 const Routes = createStackNavigator({
     Main: MainScreen,
-    ShowDetails
+    ShowDetails,
+    SearchBar: SearchBar
 }, {
         defaultNavigationOptions: {
             title: 'TV Shows',

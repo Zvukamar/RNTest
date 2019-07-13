@@ -10,5 +10,8 @@ export const styles = StyleSheet.create({
         marginLeft: 40,
         marginRight: 40,
         marginTop: 20
+    },
+    headerRight: {
+        padding: 15
     }
 })
